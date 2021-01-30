@@ -3,7 +3,7 @@
 
 namespace Textures
 {
-	enum ID { Landscape, Airplane_1, Airplane_2, Airplane_3, Missile, Zeppelin};
+	enum ID { Landscape, Airplane_1, Airplane_2, Airplane_3, Missile, Zeppelin, Enemy};
 }
 
 class TextureHolder
@@ -57,6 +57,7 @@ private:
 	sf::Sprite missile;
 
 	sf::Sprite zeppelin;
+	sf::Sprite enemy;
 
 };
 Game::Game() : mWindow(sf::VideoMode(640, 410), "SFML Application"), textures(), playerPlane(), background() {
@@ -64,12 +65,16 @@ Game::Game() : mWindow(sf::VideoMode(640, 410), "SFML Application"), textures(),
 	textures.load(Textures::Airplane_1, "IMAGES/Textures/bombers_revised.png");
 	textures.load(Textures::Landscape, "IMAGES/Textures/Landscape.png");
 	textures.load(Textures::Zeppelin, "IMAGES/Textures/Zeppelin Boss.png");
+	textures.load(Textures::Enemy, "IMAGES/Textures/enemy.png");
 	//textures.load(Textures::Missile, "IMAGES/Textures/Missile.png");
 
 	background.setTexture(textures.get(Textures::Landscape));
 	playerPlane.setTexture(textures.get(Textures::Airplane_1));
 	zeppelin.setTexture(textures.get(Textures::Zeppelin));
-	zeppelin.setPosition(sf::Vector2f(400.f, 200.f));
+	zeppelin.setPosition(sf::Vector2f(250.f, 10.f));
+
+	enemy.setTexture(textures.get(Textures::Enemy));
+	enemy.setPosition(sf::Vector2f(300.f, 200.f));
 	//missile.setTexture(textures.get(Textures::Missile));
 }
 void Game::run()
@@ -160,6 +165,7 @@ void Game::render()
 	mWindow.draw(background);
 	mWindow.draw(playerPlane);
 	mWindow.draw(zeppelin);
+	mWindow.draw(enemy);
 	//mWindow.draw(missile);
 	mWindow.display();
 }

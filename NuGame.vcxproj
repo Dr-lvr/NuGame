@@ -157,11 +157,11 @@
     <Image Include="IMAGES\Textures\aereo.png" />
     <Image Include="IMAGES\Textures\arishipIcon.png" />
     <Image Include="IMAGES\Textures\bombers_revised.png" />
-    <Image Include="IMAGES\Textures\c20181ef6abdb7aafa2a450afecdb02a.png" />
     <Image Include="IMAGES\Textures\cliffski_transparent1.png" />
     <Image Include="IMAGES\Textures\CombatPlane.png" />
     <Image Include="IMAGES\Textures\d572bks-5fe2ec72-038e-46a5-9437-517d410b7700.png" />
     <Image Include="IMAGES\Textures\elicopter.png" />
+    <Image Include="IMAGES\Textures\enemy.png" />
     <Image Include="IMAGES\Textures\Missile.png" />
     <Image Include="IMAGES\Textures\fighters.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>

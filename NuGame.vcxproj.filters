@@ -67,9 +67,6 @@
     <Image Include="IMAGES\Textures\arishipIcon.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="IMAGES\Textures\c20181ef6abdb7aafa2a450afecdb02a.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="IMAGES\Textures\cliffski_transparent1.png">
       <Filter>Resource Files</Filter>
     </Image>
@@ -92,6 +89,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="IMAGES\Textures\Zeppelin Boss.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="IMAGES\Textures\enemy.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
