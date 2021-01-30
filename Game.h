@@ -57,7 +57,7 @@ private:
 	sf::Sprite missile;
 
 	sf::Sprite zeppelin;
-	sf::Sprite enemy;
+	std::vector<sf::Sprite>* enemy = new std::vector<sf::Sprite>(5);
 
 };
 Game::Game() : mWindow(sf::VideoMode(640, 410), "SFML Application"), textures(), playerPlane(), background() {
@@ -73,8 +73,10 @@ Game::Game() : mWindow(sf::VideoMode(640, 410), "SFML Application"), textures(),
 	zeppelin.setTexture(textures.get(Textures::Zeppelin));
 	zeppelin.setPosition(sf::Vector2f(250.f, 10.f));
 
-	enemy.setTexture(textures.get(Textures::Enemy));
-	enemy.setPosition(sf::Vector2f(300.f, 200.f));
+	for (int i = 0; i < 5; ++i) {
+		enemy->at(i).setTexture(textures.get(Textures::Enemy));
+		enemy->at(i).setPosition(sf::Vector2f(i*90.f + 200, 200.f + i*20+50));
+	}
 	//missile.setTexture(textures.get(Textures::Missile));
 }
 void Game::run()
@@ -165,7 +167,9 @@ void Game::render()
 	mWindow.draw(background);
 	mWindow.draw(playerPlane);
 	mWindow.draw(zeppelin);
-	mWindow.draw(enemy);
+	for (int i = 0; i < 5; ++i) {
+		mWindow.draw(enemy->at(i));
+	}
 	//mWindow.draw(missile);
 	mWindow.display();
 }
