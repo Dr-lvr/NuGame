@@ -45,6 +45,7 @@ private:
 	bool mIsMovingDown = false; 
 	bool mIsMovingLeft = false; 
 	bool mIsMovingRight = false;
+	bool flickFlock = false;
 	float PlayerSpeed = 100;
 	
 private:
@@ -68,6 +69,7 @@ Game::Game() : mWindow(sf::VideoMode(640, 410), "SFML Application"), textures(),
 	background.setTexture(textures.get(Textures::Landscape));
 	playerPlane.setTexture(textures.get(Textures::Airplane_1));
 	zeppelin.setTexture(textures.get(Textures::Zeppelin));
+	zeppelin.setPosition(sf::Vector2f(400.f, 200.f));
 	//missile.setTexture(textures.get(Textures::Missile));
 }
 void Game::run()
@@ -122,6 +124,7 @@ void Game::update(sf::Time deltaTime)
 {
 	sf::Vector2f movement(0.f, 0.f);
 	sf::Vector2f movementRoutine(0.f, 0.f);
+	sf::Vector2f ZmovementRoutine(0.f, 0.f);
 	if (mIsMovingUp) 
 		movement.y -= PlayerSpeed;
 	if (mIsMovingDown)
@@ -131,17 +134,23 @@ void Game::update(sf::Time deltaTime)
 	if (mIsMovingRight){
 		movement.x += PlayerSpeed;
 	}
-	
-	for (int i = 0; i < 6; ++i) {
-		movementRoutine.y += 1;
-		playerPlane.move(movementRoutine * deltaTime.asSeconds());
-		movementRoutine.x -= 1;
-		playerPlane.move(movementRoutine * deltaTime.asSeconds());
+	else {
+		//player movement routine
+		for (int i = 0; i < 6; ++i) {
+			movementRoutine.y += 1;
+			playerPlane.move(movementRoutine * deltaTime.asSeconds());
+			movementRoutine.x -= 1;
+			playerPlane.move(movementRoutine * deltaTime.asSeconds());
+		}
 	}
 	/*
-	for (int i = 0; i < 5; ++i) {
-		movementRoutine.x -= i;
-		playerPlane.move(movementRoutine * deltaTime.asSeconds());
+	for (int i = 0; i < 22; ++i) {
+		ZmovementRoutine.y += 1;
+		zeppelin.move(ZmovementRoutine * deltaTime.asSeconds());
+	}
+	for (int i = 0; i < 22; ++i) {
+		ZmovementRoutine.y -= 1;
+		zeppelin.move(ZmovementRoutine * deltaTime.asSeconds());
 	}*/
 	playerPlane.move(movement * deltaTime.asSeconds());
 }
