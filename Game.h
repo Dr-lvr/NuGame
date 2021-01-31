@@ -16,6 +16,8 @@ private:
 	bool mIsMovingDown = false; 
 	bool mIsMovingLeft = false; 
 	bool mIsMovingRight = false;
+	bool mIsMovingFast = false;
+	bool mIsRollingDown = false;
 	bool flickFlock = false;
 	float PlayerSpeed = 100;
 	
@@ -88,6 +90,10 @@ void Game::handlePlayerInput(sf::Keyboard::Key key,
 		mIsMovingLeft = isPressed;
 	else if (key == sf::Keyboard::D)
 		mIsMovingRight = isPressed;
+	else if (key == sf::Keyboard::F)
+		mIsMovingFast = isPressed;
+	else if (key == sf::Keyboard::C)
+		mIsRollingDown = isPressed;
 }
 void Game::processEvents()
 {
@@ -125,6 +131,13 @@ void Game::update(sf::Time deltaTime){
 		movement.x -= PlayerSpeed;
 	if (mIsMovingRight){
 		movement.x += PlayerSpeed;
+	}
+	if (mIsMovingFast) {
+		movement.x += PlayerSpeed*4;
+	}
+	if (mIsRollingDown) {
+		movement.x += PlayerSpeed * 4;
+		movement.y += PlayerSpeed * 4;
 	}
 	else {
 		//player movement routine
