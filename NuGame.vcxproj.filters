@@ -76,9 +76,6 @@
     <Image Include="IMAGES\Textures\CombatPlane.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="IMAGES\Textures\d572bks-5fe2ec72-038e-46a5-9437-517d410b7700.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="IMAGES\Textures\elicopter.png">
       <Filter>Resource Files</Filter>
     </Image>
@@ -98,6 +95,15 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="IMAGES\Textures\Land2.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="IMAGES\Textures\CityLandscape.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="IMAGES\Textures\Desert.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="IMAGES\Textures\Landscape3.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

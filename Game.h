@@ -35,10 +35,10 @@ private:
 	std::vector<sf::Sprite>* enemy3 = new std::vector<sf::Sprite>(5);
 
 };
-Game::Game() : mWindow(sf::VideoMode(640, 410), "SFML Application"), textures(), playerPlane(), background() {
+Game::Game() : mWindow(sf::VideoMode(630, 350), "SFML Application"), textures(), playerPlane(), background() {
 
 	textures.load(Textures::Airplane_1, "IMAGES/Textures/bombers_revised.png");
-	textures.load(Textures::Landscape, "IMAGES/Textures/Land2.jpg");
+	textures.load(Textures::Landscape, "IMAGES/Textures/Landscape3.png");
 	textures.load(Textures::Zeppelin, "IMAGES/Textures/Zeppelin Boss.png");
 	textures.load(Textures::Enemy, "IMAGES/Textures/enemy.png");
 	//textures.load(Textures::Missile, "IMAGES/Textures/Missile.png");
@@ -50,11 +50,11 @@ Game::Game() : mWindow(sf::VideoMode(640, 410), "SFML Application"), textures(),
 
 	for (int i = 0; i < 5; ++i) {
 		enemy->at(i).setTexture(textures.get(Textures::Enemy));
-		enemy->at(i).setPosition(sf::Vector2f(i*90.f + 200, 200.f + i*20+50));
+		enemy->at(i).setPosition(sf::Vector2f(i*90.f + 200, 160.f + i*20+50));
 	}
 	for (int i = 0; i < 5; ++i) {
 		enemy2->at(i).setTexture(textures.get(Textures::Enemy));
-		enemy2->at(i).setPosition(sf::Vector2f(i * 90.f + 1000, 200.f + i * 20 + 50));
+		enemy2->at(i).setPosition(sf::Vector2f(i * 90.f + 1000, 160.f + i * 20 + 50));
 	}
 	for (int i = 0; i < 5; ++i) {
 		enemy3->at(i).setTexture(textures.get(Textures::Enemy));
