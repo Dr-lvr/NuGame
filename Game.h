@@ -29,6 +29,8 @@ private:
 
 	sf::Sprite zeppelin;
 	std::vector<sf::Sprite>* enemy = new std::vector<sf::Sprite>(5);
+	std::vector<sf::Sprite>* enemy2 = new std::vector<sf::Sprite>(5);
+	std::vector<sf::Sprite>* enemy3 = new std::vector<sf::Sprite>(5);
 
 };
 Game::Game() : mWindow(sf::VideoMode(640, 410), "SFML Application"), textures(), playerPlane(), background() {
@@ -47,6 +49,14 @@ Game::Game() : mWindow(sf::VideoMode(640, 410), "SFML Application"), textures(),
 	for (int i = 0; i < 5; ++i) {
 		enemy->at(i).setTexture(textures.get(Textures::Enemy));
 		enemy->at(i).setPosition(sf::Vector2f(i*90.f + 200, 200.f + i*20+50));
+	}
+	for (int i = 0; i < 5; ++i) {
+		enemy2->at(i).setTexture(textures.get(Textures::Enemy));
+		enemy2->at(i).setPosition(sf::Vector2f(i * 90.f + 1000, 200.f + i * 20 + 50));
+	}
+	for (int i = 0; i < 5; ++i) {
+		enemy3->at(i).setTexture(textures.get(Textures::Enemy));
+		enemy3->at(i).setPosition(sf::Vector2f(i * 90.f + 1500, 50.f + i * 20 + 50));
 	}
 	//missile.setTexture(textures.get(Textures::Missile));
 }
@@ -141,6 +151,8 @@ void Game::update(sf::Time deltaTime){
 
 		ZmovementRoutine.x -= distrib(gen);
 		enemy->at(i).move(ZmovementRoutine * deltaTime.asSeconds());
+		enemy2->at(i).move(ZmovementRoutine * deltaTime.asSeconds());
+		enemy3->at(i).move(ZmovementRoutine * deltaTime.asSeconds());
 	}
 	
 }
@@ -152,6 +164,8 @@ void Game::render()
 	mWindow.draw(zeppelin);
 	for (int i = 0; i < 5; ++i) {
 		mWindow.draw(enemy->at(i));
+		mWindow.draw(enemy2->at(i));
+		mWindow.draw(enemy3->at(i));
 	}
 	//mWindow.draw(missile);
 	mWindow.display();
