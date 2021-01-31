@@ -34,7 +34,7 @@ private:
 Game::Game() : mWindow(sf::VideoMode(640, 410), "SFML Application"), textures(), playerPlane(), background() {
 
 	textures.load(Textures::Airplane_1, "IMAGES/Textures/bombers_revised.png");
-	textures.load(Textures::Landscape, "IMAGES/Textures/Landscape.png");
+	textures.load(Textures::Landscape, "IMAGES/Textures/Land2.jpg");
 	textures.load(Textures::Zeppelin, "IMAGES/Textures/Zeppelin Boss.png");
 	textures.load(Textures::Enemy, "IMAGES/Textures/enemy.png");
 	//textures.load(Textures::Missile, "IMAGES/Textures/Missile.png");
