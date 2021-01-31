@@ -98,8 +98,12 @@ void Game::processEvents()
 		}
 	}
 }
-void Game::update(sf::Time deltaTime)
-{
+void Game::update(sf::Time deltaTime){
+
+	std::random_device randomDevice;
+	std::mt19937 gen(randomDevice());
+	std::uniform_int_distribution<> distrib(10, 20);
+
 	sf::Vector2f movement(0.f, 0.f);
 	sf::Vector2f movementRoutine(0.f, 0.f);
 	sf::Vector2f ZmovementRoutine(0.f, 0.f);
@@ -131,6 +135,14 @@ void Game::update(sf::Time deltaTime)
 		zeppelin.move(ZmovementRoutine * deltaTime.asSeconds());
 	}*/
 	playerPlane.move(movement * deltaTime.asSeconds());
+	ZmovementRoutine.x -= 15;
+	zeppelin.move(ZmovementRoutine * deltaTime.asSeconds());
+	for (int i = 0; i < 5; ++i) {
+
+		ZmovementRoutine.x -= distrib(gen);
+		enemy->at(i).move(ZmovementRoutine * deltaTime.asSeconds());
+	}
+	
 }
 void Game::render()
 {
