@@ -2,6 +2,7 @@
 #include<SFML/Main.hpp>
 
 #include "Game.h"
+#include "TextureHolder.h"
 
 int main()
 {

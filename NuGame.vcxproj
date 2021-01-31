@@ -142,11 +142,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="TextureHolder.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="IMAGES\Textures\1.png" />
